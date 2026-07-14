@@ -1,0 +1,9 @@
+# carranza custom 20260616
+
+global:
+  scrape_interval: 15s
+
+scrape_configs:
+  - job_name: "<server-name>"
+    static_configs:
+      - targets: ["<target_server_ip>:9100"]
