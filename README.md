@@ -65,7 +65,7 @@ Ensure the following are installed and configured:
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/your-username/telemonitor.git
+   git clone https://github.com/steenboi/telemonitor.git
    cd telemonitor
    ```
 
@@ -80,11 +80,11 @@ Ensure the following are installed and configured:
 3. **Configure credentials (optional):**
   If using the SSH alert automation, copy the example file and fill in SMTP credentials:
    ```bash
-  cp .env.example .env
-  sudo install -m 600 .env /etc/ssh_alert.env
-  # edit .env with your SMTP values, then install it on the host as /etc/ssh_alert.env
+     cp .env.example .env
+     sudo install -m 600 .env /etc/ssh_alert.env
+     # edit .env with your SMTP values, then install it on the host as /etc/ssh_alert.env
    ```
-
+   
 4. **Start the telemetry stack:**
    ```bash
    podman-compose up -d
