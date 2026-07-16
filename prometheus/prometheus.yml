@@ -2,8 +2,27 @@
 
 global:
   scrape_interval: 15s
+  evaluation_interval: 15s
 
 scrape_configs:
-  - job_name: "<server-name>"
+  - job_name: "prod-server"
     static_configs:
       - targets: ["<target_server_ip>:9100"]
+    relabel_configs:
+      # Extract instance IP from IP:port (e.g., "192.168.1.100:9100" -> "192.168.1.100")
+      - source_labels: [__address__]
+        regex: "([^:]+):.*"
+        target_label: instance_ip
+        replacement: "$1"
+
+      # Add environment label for multi-environment monitoring
+      - target_label: environment
+        replacement: "production"
+
+      # Add datacenter metadata
+      - target_label: datacenter
+        replacement: "primary-dc"
+
+      # Add monitoring tier for routing/alerting
+      - target_label: monitoring_tier
+        replacement: "infrastructure"

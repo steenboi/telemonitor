@@ -1,1 +1,5 @@
 extras
+.env
+*.log
+*.zip
+*.tar.gz

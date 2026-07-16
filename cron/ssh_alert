@@ -1,0 +1,4 @@
+SHELL=/bin/bash
+MAILTO=""
+0 * * * * root . /etc/ssh_alert.env && /usr/bin/python3 /opt/scripts/ssh_alert.py >> /var/log/ssh_alert.log 2>&1
+0 2 * * * root /usr/bin/dnf update -y >> /var/log/dnf_auto.log 2>&1
